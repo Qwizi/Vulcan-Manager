@@ -38,6 +38,12 @@ export default function WebsiteCard (props) {
         }
     ];
 
+    let progressBar = '';
+
+    if (percent > 0) {
+        progressBar = <Progress percent={percent} />;
+    }
+
     return (
         <Card title={"Uruchom strone"} hoverable style={{ margin: '10px' }}>
             <Form labelCol={{span: 2}} wrapperCol={{span: 8}} name={'website_form'}>
@@ -63,7 +69,7 @@ export default function WebsiteCard (props) {
                     <Button type={"primary"}>Wyslij</Button>
                 </Form.Item>
             </Form>
-            <Progress percent={percent} />
+            {progressBar}
         </Card>
     )
 }

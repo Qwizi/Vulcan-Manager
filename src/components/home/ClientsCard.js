@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import {Card, Table} from "antd";
 
 
 export default function ClientsCard (props) {
     const tableColumns = [
         {
-            title: 'Id',
-            dataIndex: 'id',
-            key: 'id'
+            title: 'Sid',
+            dataIndex: 'sid',
+            key: 'sid',
+            render: text => (<Link to={`/clients/${text}`}>{text}</Link>)
         },
         {
             title: 'Nazwa',
@@ -16,9 +18,10 @@ export default function ClientsCard (props) {
         }
     ];
 
+
     return (
         <Card title={"Polaczeni klienci"} hoverable>
-            <Table columns={tableColumns}/>
+            <Table dataSource={props.clients} columns={tableColumns}/>
         </Card>
     )
 }

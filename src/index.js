@@ -5,13 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Socket} from 'react-socket-io';
 
-const uri = 'http://localhost:3001/manager';
-const options = {transports: ['websocket']}
+const uri = "http://localhost:4000/manager";
 
 ReactDOM.render(
   <React.StrictMode>
-      <Socket uri={uri} options={options}>
-          <App />
+      <Socket uri={uri}>
+          <App/>
       </Socket>
   </React.StrictMode>,
   document.getElementById('root')
